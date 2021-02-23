@@ -1,20 +1,22 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<ion-content (click)="triggerGame()" [fullscreen]="true">
+  <div class="container">
+    <div class="sky"></div>
+    <div class="led-box">
+      <div class="line"></div>
+      <div *ngFor="let light of lights" class="led-container">
+        <div [ngClass]="light.isOn ? 'led-red' : 'led-black'"></div>
+      </div>
+    </div>
+    <div class="score">
+      {{playerScore}}
+    </div>
+    <div class="car-container">
+      <div [ngClass]="this.moveCar === 0 ? 'car' : 'car move'">
+        ️️🏎️
+      </div>
+    </div>
+    <div class="highScore">
+      High Score : {{highScore}}
+    </div>
   </div>
 </ion-content>
